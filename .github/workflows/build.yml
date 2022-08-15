@@ -32,9 +32,7 @@ jobs:
     # Add steps here like linting, testing, minification, etc.
       
     - name: Setup ECR
-      run: |
- 
-        $( aws ecr-public get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin public.ecr.aws/z2g8g3c5 )
+      run: $( aws ecr-public get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin public.ecr.aws/z2g8g3c5 )
 
     - name: Build and tag the image
       run: |
